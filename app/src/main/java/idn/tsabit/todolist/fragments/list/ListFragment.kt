@@ -1,14 +1,12 @@
 package idn.tsabit.todolist.fragments.list
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.*
-import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -22,11 +20,8 @@ import idn.tsabit.todolist.databinding.FragmentListBinding
 import idn.tsabit.todolist.fragments.SharedViewModel
 import idn.tsabit.todolist.utils.hideKeyboard
 import jp.wasabeef.recyclerview.animators.LandingAnimator
-import kotlinx.android.synthetic.main.fragment_list.*
-import kotlinx.android.synthetic.main.fragment_list.view.*
-import kotlinx.android.synthetic.main.row_layout.view.*
 
-class ListFragment : Fragment(), SearchView.OnQueryTextListener {
+class ListFragment : Fragment(), androidx.appcompat.widget.SearchView.OnQueryTextListener {
 
     private val mSharedViewModel: SharedViewModel by viewModels()
     private val mToDoViewModel: ToDoViewModel by viewModels()
@@ -86,7 +81,6 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        menu.clear()
         inflater.inflate(R.menu.list_fragment_menu, menu)
 
         val search = menu.findItem(R.id.menu_search)

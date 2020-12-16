@@ -34,6 +34,8 @@ class UpdateFragment : Fragment() {
         bindingAdapters = FragmentUpdateBinding.inflate(inflater, container, false)
         binding?.args = args
 
+        setHasOptionsMenu(true)
+
         binding?.spinnerPrioritiesCurrent?.onItemSelectedListener = mSharedViewModel.listener
 
         return binding?.root
@@ -92,8 +94,8 @@ class UpdateFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
+    override fun onDestroy() {
+        super.onDestroy()
         bindingAdapters = null
     }
 }
